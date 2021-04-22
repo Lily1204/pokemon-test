@@ -1,0 +1,35 @@
+<div style="max-width: 700px" *ngIf="detail" fxLayout="column" color="primary">
+  <div class="container-title">
+    <div fxLayoutAlign="end" fxLayout="row">
+      <button mat-icon-button color="primary">
+        <mat-icon>favorite</mat-icon>
+      </button>
+    </div>
+    <div class="deltail" fxLayout="row" fxLayoutAlign="space-between">
+      <h1>{{ detail.name }}</h1>
+      <h3># {{ detail.id }}</h3>
+    </div>
+    <div class="deltail" fxLayout="row" fxLayoutGap="15px">
+      <div *ngFor="let ability of detail.abilities">
+        <button class="button" mat-flat-button color="accent">
+          {{ ability.ability.name }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div fxLayout="column" class="container" fxLayoutAlign="center center">
+    <img class="image" src="{{ detail.sprites.front_default }}" />
+    <mat-tab-group animationDuration="2000ms">
+      <mat-tab label="About">
+        <pokemons-about [detail]="detail"></pokemons-about>
+      </mat-tab>
+      <mat-tab label="Base Stats">
+        <pokemons-stats [detail]="detail"></pokemons-stats>
+      </mat-tab>
+      <mat-tab label="Moves">
+        <pokemons-moves [detail]="detail"></pokemons-moves>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

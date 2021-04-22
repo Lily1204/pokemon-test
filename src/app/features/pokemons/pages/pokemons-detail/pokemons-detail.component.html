@@ -1,0 +1,14 @@
+<div fxLayoutGap="30px" fxLayout="column">
+  <div fxLayoutAlign="start">
+    <button mat-button color="primary" routerLink="/">
+      <mat-icon>arrow_back</mat-icon>
+      Regresar
+    </button>
+  </div>
+  <div fxLayoutAlign="center center">
+    <pokemon-detail
+      [detail]="detail$ | async"
+      [species]="species$ | async"
+    ></pokemon-detail>
+  </div>
+</div>

@@ -1,8 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
+import { AppProvidersModule } from './providers/app-providers.module';
+import { SnackbarProviderModule } from './providers/snackbar-provider/snackbar-provider.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+import { StoreConfigModule } from './store/store-config.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +14,12 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    AppProvidersModule,
+    SnackbarProviderModule,
+    HttpClientModule,
+    StoreConfigModule
   ],
   providers: [],
   bootstrap: [AppComponent]

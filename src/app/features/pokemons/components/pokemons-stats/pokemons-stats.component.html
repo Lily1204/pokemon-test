@@ -1,0 +1,33 @@
+<div fxLayout="column" fxLayoutGap="15px" style="margin: 20px">
+  <div *ngFor="let item of detail.stats">
+    <div fxLayout="row" fxLayoutGap="100px">
+      <div style="width: 100px">
+        <span>{{ item.stat.name }} </span>
+      </div>
+      <div fxLayout="row" fxLayoutGap="15px">
+        <div>
+          <span>{{ item.base_stat }} </span>
+        </div>
+        <div style="width: 150px">
+          <mat-progress-bar
+            mode="determinate"
+            value="{{ item.base_stat }}"
+          ></mat-progress-bar>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div fxLayout="column">
+    <h1>Type Defenses</h1>
+    <div fxLayout="row">
+      <span>The effectiveness of each type on</span>
+
+      <div *ngFor="let item of detail.types">
+        <div fxLayout="row">
+          <span> {{ item.type.name }}, </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

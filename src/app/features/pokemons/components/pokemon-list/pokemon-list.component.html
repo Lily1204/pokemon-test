@@ -1,0 +1,46 @@
+<div
+  class="container"
+  fxLayout="row"
+  fxLayoutAlign="space-around center"
+  *ngIf="items"
+>
+  <div
+    *ngFor="let item of items"
+    fxLayoutGap="15px"
+    fxLayoutAlign="space-around center"
+    fxFlex
+  >
+    <mat-card
+      class="card"
+      fxLayoutAlign="center center"
+      routerLink="/detail/{{ item.id }}"
+    >
+      <div fxLayoutAlign="center center" fxLayout="column" fxLayoutGap="15px">
+        <span> {{ item.name }} </span>
+
+        <span> # {{ item.id }} </span>
+      </div>
+      <img
+        fxLayoutAlign="center center"
+        src="{{ item.sprites.front_default }} "
+        style="height: 100px; width: 100px"
+      />
+    </mat-card>
+  </div>
+</div>
+<div fxLayoutAlign="space-around center" *ngIf="catalog">
+  <button
+    mat-button
+    color="primary"
+    (click)="onChangePageBefore()"
+    [disabled]="catalog.previous === null"
+  >
+    <mat-icon>arrow_back</mat-icon>
+    Anterior
+  </button>
+
+  <button mat-button color="primary" (click)="onChangePageAfter()">
+    Siguiente
+    <mat-icon>arrow_forward</mat-icon>
+  </button>
+</div>

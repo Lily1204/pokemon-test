@@ -1,0 +1,46 @@
+<div fxLayout="column" fxLayoutGap="15px" style="margin: 20px">
+  <div fxLayout="row" fxLayoutGap="180px">
+    <span>Species</span>
+    <span>{{ detail.species.name }} </span>
+  </div>
+
+  <div fxLayout="row" fxLayoutGap="180px">
+    <span>Height</span>
+    <span>{{ detail.height }} * </span>
+  </div>
+
+  <div fxLayout="row" fxLayoutGap="180px">
+    <span>Weight</span>
+    <span>{{ detail.weight }} lbs</span>
+  </div>
+
+  <div fxLayout="row" fxLayoutGap="170px">
+    <div>
+      <span>Abilities</span>
+    </div>
+    <div fxLayout="row" fxLayoutGap="10px">
+      <div *ngFor="let item of detail.abilities">
+        <span>{{ item.ability.name }}, </span>
+      </div>
+    </div>
+  </div>
+
+  <h1>Breeding</h1>
+  <div fxLayout="row" fxLayoutGap="180px">
+    <span>Gender</span>
+    <div fxLayoutGap="10px" fxLayout="row">
+      <span>
+        <mat-icon class="material-icons-outlined mat-info">male</mat-icon>
+        87.5%</span
+      >
+      <span>
+        <mat-icon class="material-icons-outlined mat-info">female</mat-icon
+        >87.5%</span
+      >
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutGap="180px">
+    <span>Egg Cyvle</span>
+    <span>Overgro</span>
+  </div>
+</div>

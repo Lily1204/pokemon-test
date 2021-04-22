@@ -1,0 +1,557 @@
+@import 'variables';
+
+// Compute font config
+@include mat-core($fontConfig);
+
+$theme-primary: mat-palette($mat-primary, main, lighter, darker);
+$theme-accent: mat-palette($mat-accent, main, lighter, darker);
+$theme-warn: mat-palette($mat-warn, main, lighter, darker);
+
+$theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
+
+$mat-success: darken(#00c48c, 10%);
+
+$purple: #5f24fb;
+
+$light-purple: #a38ce9;
+
+@mixin mat-toolbar($theme) {
+  mat-toolbar {
+    &.mat-translucid {
+      background-color: rgba($color: #000000, $alpha: 0.45);
+      color: #fff;
+    }
+
+    &.mat-light {
+      background-color: #fff;
+    }
+
+    &.mat-dark {
+      background-color: rgba($color: #000000, $alpha: 0.9);
+      color: #fff;
+    }
+  }
+}
+
+@mixin mat-button($theme) {
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  button.mat-flat-button.mat-button-base.mat-primary {
+    color: #fff;
+  }
+
+  a.register-title.mat-button {
+    font-size: 1.75em;
+
+    &.mat-button-base:hover {
+      background-color: mat-color(map-get($theme, primary));
+      color: #fff;
+    }
+  }
+
+  a.text-white.mat-flat-button {
+    color: #ffffff;
+  }
+
+  a.link.mat-button.mat-button-base.mat-primary {
+    padding: 0;
+  }
+
+  button.text-primary {
+    color: mat-color(map-get($theme, primary));
+  }
+
+  a.text-white.mat-flat-button.mat-button-base.mat-primary {
+    color: #ffffff;
+  }
+
+  a.mat-list-item.active {
+    color: mat-color(map-get($theme, primary));
+  }
+
+  button.mat-menu-trigger.mat-flat-button.mat-button-base.cdk-focused.cdk-mouse-focused {
+    background-color: $purple;
+  }
+
+  button.mat-button-base.mat-mini-fab.mat-accent-light {
+    background-color: lighten($color: mat-color($accent), $amount: 20%);
+    color: #fff;
+  }
+
+  button.carousel.mat-mini-fab.mat-accent {
+    background-color: rgba($color: #515151, $alpha: 0.45);
+  }
+
+  a.border-primary {
+    border: 1px solid mat-color(map-get($theme, primary));
+    color: mat-color(map-get($theme, primary));
+  }
+
+  button.accepted {
+    background-color: #00c48c;
+    color: #ffffff;
+  }
+
+  button.rejected:hover {
+    color: #ffffff;
+    background-color: mat-color($theme-warn);
+    transition: ease-in 150ms;
+  }
+
+  a.mat-link {
+    text-decoration: none;
+  }
+
+  button.mat-fab {
+    &.mat-warn-outline {
+      color: mat-color($warn);
+    }
+
+    &[class$='-outline'] {
+      transition: background-color 300ms ease;
+      background-color: #fff;
+
+      &:hover {
+        background-color: #f0f0f1;
+      }
+    }
+  }
+}
+
+@mixin mat-dialog($theme) {
+  mat-dialog-content.no-scroll {
+    overflow: hidden;
+  }
+
+  .register-modal mat-dialog-container.mat-dialog-container {
+    box-shadow: 0px 2px 11px 0px rgba(194, 186, 194, 1);
+  }
+}
+
+@mixin mat-spinner($theme) {
+  mat-spinner.mat-light circle {
+    stroke: #fff;
+  }
+}
+
+@mixin mat-card($theme) {
+  mat-card.mat-card {
+    &.add_product,
+    &.product-search {
+      margin-bottom: 1.5em;
+      min-height: 100px;
+      border-radius: 20px;
+      width: 100%;
+    }
+
+    &.success {
+      background: $mat-success;
+      color: #fff;
+    }
+
+    &.add_product {
+      cursor: pointer;
+    }
+
+    &.product {
+      margin-bottom: 1.5em;
+      border-radius: 20px;
+    }
+
+    &.info {
+      background: lighten($color: #0095ff, $amount: 30%);
+      min-height: auto;
+      margin-top: 5px;
+    }
+
+    &.warning {
+      background: lighten($color: #ffbf00, $amount: 30%);
+      min-height: auto;
+      margin-top: 5px;
+    }
+  }
+}
+
+@mixin mat-snackbar($theme) {
+  snack-bar-container {
+    &.success {
+      background-color: $mat-success;
+    }
+
+    &.warn {
+      background-color: mat-color($theme-warn);
+    }
+
+    &.bc-white {
+      background-color: #ffffff;
+      color: #000000;
+    }
+  }
+}
+
+@mixin mat-link($theme) {
+  .link.mat-primary {
+    color: mat-color(map-get($theme, primary));
+  }
+}
+
+@mixin mat-text($theme) {
+  $primary: map-get($theme, primary);
+
+  .text-primary.mat-title,
+  .text-primary {
+    color: mat-color($primary);
+  }
+
+  .text-warn {
+    color: mat-color($theme-warn);
+  }
+
+  .text-success {
+    color: #00c48c;
+  }
+
+  .text-white {
+    color: #fff;
+  }
+
+  .mat-info {
+    color: #0095ff;
+  }
+
+  .mat-notification {
+    color: rgba($color: #515151, $alpha: 0.5);
+  }
+
+  .title.mat-primary {
+    color: #fff;
+    background-color: rgba($color: mat-color($primary), $alpha: 0.4);
+  }
+
+  .card-title.mat-body-2 {
+    margin-left: 5px;
+    font-size: 1.25em;
+
+    &:hover {
+      color: mat-color($primary);
+    }
+  }
+
+  .tag {
+    font-weight: normal;
+    background-color: #fff5cb;
+    color: mat-color($primary);
+    border-radius: 15px;
+    padding: 3px 15px;
+  }
+
+  .small-text {
+    font-size: 0.8em;
+  }
+
+  .tag-light {
+    background-color: #f0a809;
+    color: #fff;
+    border-radius: 15px;
+    padding: 3px 15px;
+  }
+
+  .title-lg {
+    font-size: 2.5em;
+    line-height: 1;
+  }
+
+  .title-md {
+    font-size: 2em;
+  }
+
+  .title-sm {
+    font-size: 1.85em;
+  }
+
+  .text-body {
+    font-size: 1.35em;
+  }
+
+  .text-body-2 {
+    font-size: 1.5em;
+  }
+
+  .title-xs {
+    font-size: 1.08em;
+  }
+
+  .title-carousel {
+    font-size: 4em;
+    line-height: 0.75;
+  }
+
+  .title-carousel-sm {
+    font-size: 2em;
+  }
+}
+
+@mixin mat-chip($theme) {
+  mat-chip.mat-standard-chip.mat-primary {
+    background-color: mat-color(map-get($theme, primary));
+    color: #fff;
+    font-weight: normal;
+  }
+
+  .mat-chip.mat-translucid {
+    color: #fff;
+    background-color: rgba($color: #fff, $alpha: 0.35);
+  }
+}
+
+@mixin mat-form-field($theme) {
+  .mat-form-field-appearance-outline.dark-bg {
+    .mat-form-field-outline {
+      background-color: rgba($color: #000, $alpha: 0.35);
+      color: rgba($color: #fff, $alpha: 0.5);
+      border-radius: 5px;
+    }
+
+    .mat-form-field-flex {
+      padding: 0 0.75em;
+      height: 77px;
+
+    }
+
+    .mat-form-field-wrapper {
+      padding-bottom: 0;
+    }
+
+    .mat-select-arrow-wrapper {
+      transform: none;
+    }
+
+    .mat-input-element,
+    .mat-form-field-prefix,
+    .mat-select-arrow {
+      color: #fff;
+    }
+
+    .mat-input-element::placeholder {
+      color: rgba($color: #fff, $alpha: 0.5);
+    }
+  }
+
+  .mat-form-field-prefix {
+    padding-right: 5px;
+  }
+
+  .query {
+    .mat-form-field-infix {
+      width: 300px;
+    }
+  }
+
+  .no-padding {
+    .mat-form-field-underline {
+      bottom: 0;
+    }
+  }
+  .mat-form-field.ng-invalid.ng-touched {
+    margin-bottom: 10px;
+  }
+
+  .text-error.mat-form-field.ng-invalid.ng-touched {
+    margin-bottom: 0;
+  }
+
+  mat-form-field.prefix-price.mat-form-field-appearance-outline
+    .mat-form-field-wrapper
+    .mat-form-field-flex {
+    & .mat-form-field-prefix,
+    & .mat-form-field-suffix {
+      top: 0;
+    }
+  }
+
+  mat-form-field.linkedin {
+    & .mat-form-field-wrapper {
+      & .mat-form-field-flex {
+        & .mat-form-field-infix {
+          width: auto;
+        }
+      }
+    }
+  }
+}
+
+@mixin mat-select($theme) {
+  mat-select.dark-bg .mat-select-value-text {
+    color: #fff;
+    white-space: normal;
+  }
+
+  .mat-select-panel.dark-bg {
+    .mat-option-text {
+      font: 400 14px/20px Monserrat;
+    }
+  }
+}
+
+@mixin mat-icon($theme) {
+  mat-icon.product-icon {
+    color: $light-purple;
+  }
+
+  mat-icon.sm-start {
+    font-size: 16px;
+  }
+}
+
+mat-icon.sm {
+  font-size: 16px;
+}
+mat-icon.md {
+  font-size: 19px;
+}
+
+@mixin mat-option($theme) {
+  .mat-option {
+    font: 400 14px/20px Montserrat;
+  }
+}
+
+@mixin mat-checkbox($theme) {
+  mat-checkbox.mat-checkbox.mat-accent.mat-checkbox-checked {
+    .mat-checkbox-background {
+      background-color: $purple;
+    }
+  }
+
+  mat-checkbox.mat-checkbox {
+    .mat-checkbox-frame {
+      border-width: 1px;
+      border-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  mat-checkbox.ranking.mat-checkbox.mat-accent .mat-checkbox-label {
+    line-height: 16px;
+  }
+}
+
+@mixin mat-tap($theme) {
+  mat-tab-group.detail.mat-tab-group.mat-primary {
+    mat-tab-header.mat-tab-header {
+      border-bottom: none;
+      .mat-tab-label-container {
+        max-width: 960px;
+      }
+    }
+  }
+
+  .mat-tab-label-active {
+    opacity: 1 !important;
+  }
+
+  mat-tab-group.mat-tab-group.mat-primary {
+    mat-tab-header.mat-tab-header {
+      border-bottom: none;
+      .mat-tab-label-container {
+        max-width: 960px;
+      }
+    }
+  }
+
+  .orders {
+    margin: 20px 100px;
+    padding: 20px;
+  }
+}
+
+@mixin search-theme($theme) {
+  mat-form-field.search {
+    height: 60px;
+    width: 400px;
+
+    &.mat-form-field {
+      min-width: 50%;
+    }
+
+    & .mat-form-field-wrapper {
+      margin: 0.6em 0;
+
+      & .mat-form-field-flex {
+        padding-bottom: 5px;
+        color: #000000;
+
+        & .mat-form-field-outline {
+          background-color: white !important;
+          border-radius: 3px 0 0 3px;
+
+          & .mat-form-field-outline-start,
+          .mat-form-field-outline-end {
+            border: none;
+          }
+        }
+
+        & .mat-form-field-infix {
+          padding: 5px 0;
+        }
+      }
+    }
+  }
+
+  button.btn-search.mat-flat-button.mat-button-base.mat-primary {
+    height: min-content;
+    padding-top: 2.5px;
+    margin-bottom: 5px;
+    border-radius: 0 5px 5px 0;
+
+    .mat-button-ripple.mat-ripple {
+      height: auto;
+    }
+  }
+}
+
+@mixin background-themes($theme) {
+  div.primary {
+    background-color: mat-color(map-get($theme, primary));
+    color: #fff;
+  }
+
+  div.dark {
+    background-color: #212121;
+    color: white;
+  }
+}
+
+@mixin mat-divider($theme) {
+  mat-divider.color-white {
+    border-top-color: #fff;
+  }
+}
+
+@mixin bar-rating($theme) {
+  bar-rating .br.br-default.br-readonly {
+    margin: 0;
+  }
+}
+
+// Theme Init
+@include angular-material-theme($theme);
+@include mat-toolbar($theme);
+@include mat-button($theme);
+@include mat-dialog($theme);
+@include mat-spinner($theme);
+@include mat-card($theme);
+@include mat-snackbar($theme);
+@include mat-link($theme);
+@include mat-text($theme);
+@include mat-chip($theme);
+@include mat-form-field($theme);
+@include mat-select($theme);
+@include mat-icon($theme);
+@include mat-option($theme);
+@include mat-checkbox($theme);
+@include mat-tap($theme);
+@include search-theme($theme);
+@include background-themes($theme);
+@include mat-divider($theme);
+@include bar-rating($theme);

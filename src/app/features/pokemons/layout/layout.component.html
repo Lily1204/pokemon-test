@@ -1,0 +1,18 @@
+<mat-toolbar
+  fxLayout="row"
+  fxLayoutAlign="space-between center"
+  color="primary"
+>
+  <div>
+    <img src="assets/img/pokemon4.png" style="width: 250px; height: 55px" />
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="center center">
+    <h2>Liliana Rosas</h2>
+
+    <div color="primary" class="background" routerLink="/user"></div>
+  </div>
+
+  <ng-content></ng-content>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

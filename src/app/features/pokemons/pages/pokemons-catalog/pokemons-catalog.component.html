@@ -1,0 +1,11 @@
+<div fxLayoutAlign="center center" fxLayout="column">
+  <div *ngIf="isLoading$ | async" fxLayoutAlign=" center center">
+    <mat-spinner></mat-spinner>
+  </div>
+  <pokemon-list
+    [items]="items"
+    [catalog]="catalog$ | async"
+    (pageEventBefore)="pageEventBefore($event)"
+    (pageEventAfter)="pageEventAfter($event)"
+  ></pokemon-list>
+</div>
